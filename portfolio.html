@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Yashaswini P R – BCA Portfolio, Project Intern at AIkshetra, showcasing Restaurant App & Banking System projects.">
+    <title>Yashaswini P R – BCA Portfolio || Tech Enthusiast</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0F2B45;
+            --accent-gold: #C59B4A;
+            --bg-warm-neutral: #FBF9F6;
+            --text-main: #1E2A3A;
+            --text-light: #5A6E7F;
+            --white: #FFFFFF;
+            --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-warm-neutral);
+            color: var(--text-main);
+            line-height: 1.55;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            background-color: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-bottom: 1px solid rgba(184, 144, 71, 0.15);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue), #38658F);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.3rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active-link {
+            color: var(--accent-gold);
+            border-bottom-color: var(--accent-gold);
+        }
+
+        .content-container {
+            padding: 2.5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 70vh;
+        }
+
+        .page-section {
+            display: none;
+            animation: fadeInUp 0.45s ease forwards;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #home .hero-content {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--white);
+            box-shadow: var(--shadow-md);
+            background: var(--primary-blue);
+            transition: transform 0.2s ease;
+        }
+        .profile-img:hover { transform: scale(1.02); }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 0.25rem;
+            background: linear-gradient(135deg, var(--primary-blue), #2B5C7A);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.7rem;
+        }
+
+        .hero-tagline {
+            max-width: 620px;
+            margin: 0.5rem auto 0;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .resume-home-card {
+            background: var(--white);
+            border-radius: 32px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0 1rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(197, 155, 74, 0.2);
+            transition: var(--transition);
+        }
+        .resume-home-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .resume-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .resume-badge {
+            background: linear-gradient(105deg, var(--primary-blue), #1F4A6E);
+            color: white;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .btn-primary:hover {
+            background: #1A405E;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(26,54,93,0.2);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--primary-blue);
+            color: var(--primary-blue);
+        }
+        .btn-outline:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(15, 43, 69, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: var(--white);
+            width: 90%;
+            max-width: 800px;
+            max-height: 85vh;
+            border-radius: 32px;
+            overflow-y: auto;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.25);
+            scrollbar-width: thin;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #EFE9DF;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .close-modal {
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-weight: 400;
+            color: var(--text-light);
+            transition: 0.2s;
+        }
+        .close-modal:hover { color: var(--accent-gold); }
+
+        .resume-full-content .resume-block {
+            margin-bottom: 1.5rem;
+        }
+        .resume-block h4 {
+            color: var(--primary-blue);
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 0.8rem;
+            margin-bottom: 0.6rem;
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 1.8rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            border: 1px solid #F0EADE;
+        }
+        .card:hover { box-shadow: var(--shadow-md); }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .skill-tag {
+            background: linear-gradient(145deg, #FFFFFF, #FDFAF4);
+            border: 1px solid #E7DCC8;
+            padding: 0.6rem 1.3rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary-blue);
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .skill-tag i {
+            font-size: 1rem;
+            color: var(--accent-gold);
+        }
+        .skill-tag:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+            background: white;
+        }
+
+        .section-content h2 {
+            font-size: 2.2rem;
+            border-left: 5px solid var(--accent-gold);
+            padding-left: 1.2rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1rem;
+            flex-wrap: wrap;
+        }
+        .contact-item i {
+            width: 2rem;
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+        }
+        .contact-item a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed transparent;
+            transition: 0.2s;
+        }
+        .contact-item a:hover {
+            color: var(--accent-gold);
+            border-bottom-color: var(--accent-gold);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            margin-top: 1.5rem;
+        }
+        a {
+            text-decoration: none;
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 700px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .navbar { flex-direction: column; }
+            .nav-links { justify-content: center; gap: 1.2rem; }
+            .content-container { padding: 2rem 1.5rem; }
+            .resume-header { flex-direction: column; align-items: flex-start; }
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .print-resume-only, .print-resume-only * {
+                visibility: visible;
+            }
+            .print-resume-only {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                padding: 1.5rem;
+                background: white;
+                font-size: 11pt;
+            }
+            .modal, .navbar, footer, .btn-group, .resume-home-card .btn-group {
+                display: none !important;
+            }
+            .print-resume-only .resume-block {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Yashaswini P R</div>
+    <ul class="nav-links">
+        <li><a href="#" data-target="home" class="active-link">Home</a></li>
+        <li><a href="#" data-target="about">About</a></li>
+        <li><a href="#" data-target="experience">Experience</a></li>
+        <li><a href="#" data-target="skills">Skills</a></li>
+        <li><a href="#" data-target="portfolio">Portfolio</a></li>
+        <li><a href="#" data-target="contact">Contact</a></li>
+    </ul>
+</nav>
+
+<main class="content-container">
+    <section id="home" class="page-section active">
+        <div class="hero-content">
+            <div class="profile-image-container">
+                <img class="profile-img" src="C:\Users\Dell\OneDrive\Documents\yashuprport\Yashaswini P R.jpeg"
+                     alt="Yashaswini P R profile avatar">
+            </div>
+            <h1>Yashaswini P R</h1>
+            <div class="hero-subtitle">Project Intern @ AIkshetra | BCA Candidate</div>
+            <p class="hero-tagline">Building real-world tech solutions with empathy and precision & lifelong learner.</p>
+        </div>
+
+        <div class="resume-home-card">
+            <div class="resume-header">
+                <span class="resume-badge">📄 Resume 2026 — Yashaswini P R</span>
+                <div class="btn-group">
+                    <button id="viewResumeModalBtn" class="btn btn-outline">👁️ View & download Resume</button>
+                </div>
+            </div>
+            <p style="margin-bottom: 0.5rem;"><strong>🔹 BCA (Final Year) — Vidya Education Institute, Tumkur University</strong></p>
+            <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">🌟 Restaurant App • Banking System • AIkshetra Intern • C, Java, Python</p>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; border-top: 1px solid #EFE9DF; padding-top: 1rem;">
+                <a href="https://www.linkedin.com/in/yashaswini-p-r-444539314/?locale=overlay" target="_blank" style="display: inline-flex; align-items: center; gap: 0.4rem; background: #f0f2f5; padding: 0.3rem 0.9rem; border-radius: 30px; font-size: 0.8rem; color: var(--primary-blue); text-decoration: none;"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/pryashu04-ops" target="_blank" style="display: inline-flex; align-items: center; gap: 0.4rem; background: #f0f2f5; padding: 0.3rem 0.9rem; border-radius: 30px; font-size: 0.8rem; color: var(--primary-blue); text-decoration: none;"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="page-section">
+        <div class="section-content">
+            <h2>About Me</h2>
+            <p>Rooted in the values of hard work from my farming family background in Madhugiri, Karnataka. Now pursuing BCA at <strong>Vidya First Grade College (Vidya Education Institute)</strong>, affiliated with Tumkur University. My goal is to craft technology that bridges digital gaps and empowers communities.</p>
+            <div class="card" style="margin-top: 1.5rem;">
+                <h4 style="margin-bottom: 0.75rem;">🎓 Education</h4>
+                <p><strong>Bachelor of Computer Applications (BCA)</strong><br>Vidya First Grade College, Tumkur University | 2023 – 2026 </p>
+                <p>Coursework: Web Technologies, Data Structures, OOP, DBMS,  Python Programming, Cloud basics.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="page-section">
+        <div class="section-content">
+            <h2>Experience & Projects</h2>
+            <div class="card">
+                <h4>💼 Project Intern</h4>
+                <p><strong>AI Kshetra Tech Solutions</strong> | April 2026 – Present</p>
+                <ul style="margin-top: 0.6rem; padding-left: 1.2rem;">
+                    <li>Developing dynamic dashboards and robust internal tools </li>
+                    <li>Implementing responsive UI/UX patterns.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>🍽️ Restaurant App System (Web Based Project)</h4>
+                <p><strong>Full-stack project</strong> </p>
+                <ul style="margin-top: 0.6rem; padding-left: 1.2rem;">
+                    <li>Developed a complete restaurant management system with online ordering, table reservation, and admin dashboard.</li>
+                    <li>Implemented real-time order tracking and dynamic menu management, improving user engagement </li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>🏦 Banking System (Web Based Project)</h4>
+                <p><strong>Secure financial web application</strong> </p>
+                <ul style="margin-top: 0.6rem; padding-left: 1.2rem;">
+                    <li>Built a feature-rich online banking system with account management, fund transfers, transaction history, and admin controls.</li>
+                    <li>Integrated strong security measures: password hashing, session management, and input validation.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="page-section">
+        <div class="section-content">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-tag"><i class="fas fa-code"></i> C Programming</span>
+                <span class="skill-tag"><i class="fab fa-java"></i> Java (Core)</span>
+                <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                <span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
+                <span class="skill-tag"><i class="fab fa-php"></i> PHP</span>
+                <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
+                <span class="skill-tag"><i class="fab fa-git-alt"></i> Git & GitHub</span>
+                <span class="skill-tag"><i class="fas fa-cloud-upload-alt"></i> REST APIs</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="page-section">
+        <div class="section-content">
+            <h2>Featured Projects</h2>
+            <div class="card">
+                <h4>🍽️ Restaurant App System</h4>
+                <p>Full-stack web application enabling online food ordering, table reservations, and real-time order tracking for restaurants. Includes admin panel for menu and order management.</p>
+            </div>
+            <div class="card">
+                <h4>🏦 Banking System</h4>
+                <p>Secure online banking platform with account dashboard, fund transfer, transaction history, and admin user management. Built with industry standard security practices.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="page-section">
+        <div class="section-content">
+            <h2>Let's Connect</h2>
+            <div class="card">
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/yashaswini-p-r-444539314/?locale=overlay" target="_blank">linkedin.com/in/yashaswini-p-r</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/pryashu04-ops" target="_blank">github.com/pryashu04-ops</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:pryashu04@gmail.com">pryashu04@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 93533 09738</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Tumkur, Karnataka, India</span>
+                    </div>
+                </div>
+                <p style="margin-top: 1.5rem;">✨ Open to internship & full-time opportunities.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="resumeModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 style="color: var(--primary-blue); font-weight: 700;">📄 Yashaswini P R — Complete Resume</h3>
+            <button class="close-modal" id="closeModalBtn">&times;</button>
+        </div>
+        <div id="modalResumeBody" class="resume-full-content"></div>
+        <div style="margin-top: 1.8rem; display: flex; justify-content: flex-end;">
+            <button id="downloadFromModalBtn" class="btn btn-primary">⬇️ Download PDF Resume</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Yashaswini P R — Restaurant App & Banking System projects | Connect on LinkedIn & GitHub</p>
+</footer>
+
+<script>
+    // ========== RESUME CONTENT EXACTLY MATCHING THE PROVIDED PDF ==========
+    const structuredResumeHTML = `
+        <div class="resume-block">
+            <h4>Contact & Address</h4>
+            <p>Puravara (V)&(P), Madhugiri (TQ), Tumkur (Dist), Karnataka - 572175<br>
+            📞 +91 93533 09738 | ✉️ pryashu04@gmail.com</p>
+        </div>
+        <div class="resume-block">
+            <h4>Objective</h4>
+            <p>Aspiring Computer Applications graduate seeking a challenging role in IT or Software Development to apply technical skills, problem-solving abilities, and passion for technology toward organizational growth.</p>
+        </div>
+        <div class="resume-block">
+            <h4>Education</h4>
+            <p><strong>Bachelor of Computer Applications (BCA)</strong> - Tumkur University, 2026<br>
+            Relevant Coursework: Programming (C, Java, Python), Database Management, Web Development.</p>
+        </div>
+        <div class="resume-block">
+            <h4>Technical Skills</h4>
+            <p><strong>Languages:</strong> C, Java, Python, JavaScript<br>
+            <strong>Web Technologies:</strong> HTML, CSS, PHP, MySQL<br>
+            <strong>Databases:</strong> MySQL, Oracle<br>
+            <strong>Tools:</strong> VS Code, Git, GitHub<br>
+            <strong>Operating Systems:</strong> Windows, Linux</p>
+        </div>
+        <div class="resume-block">
+            <h4>Projects</h4>
+            <p><strong>📚 Online Library Management System</strong> - Developed a PHP & MySQL-based platform for book search and issue management.<br>
+            <strong>📋 Student Attendance Management System</strong> - Created a Java application to automate attendance tracking.<br>
+            <strong>🌐 Portfolio Website</strong> - Designed a personal portfolio to showcase academic and project work.</p>
+        </div>
+        <div class="resume-block">
+            <h4>Certifications</h4>
+            <p>✅ Database Management System - Great Learning Academy<br>
+            ✅ Java Programming - Great Learning Academy</p>
+        </div>
+        <div class="resume-block">
+            <h4>Internships & Seminars</h4>
+            <p>• Presented seminar on Blue Brain and AI Tools<br>
+            • Assisted in coding, testing, and collaborating on software projects<br>
+            • Working as project intern at <strong>AIKSHETRA tech solution</strong></p>
+        </div>
+        <div class="resume-block">
+            <h4>Extra-Curricular</h4>
+            <p>Member, College Tech Club - participated in coding workshops<br>
+            Volunteer in college events and seminars</p>
+        </div>
+        <div class="resume-block">
+            <h4>Languages</h4>
+            <p>English | Kannada</p>
+        </div>
+    `;
+
+    // Inject resume content into modal
+    const modalContentDiv = document.getElementById('modalResumeBody');
+    if (modalContentDiv) modalContentDiv.innerHTML = structuredResumeHTML;
+
+    // ----- MODAL CONTROLS -----
+    const modalOverlay = document.getElementById('resumeModal');
+    const openModalBtn = document.getElementById('viewResumeModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const downloadModalBtn = document.getElementById('downloadFromModalBtn');
+
+    const openModal = () => { modalOverlay.style.display = 'flex'; };
+    const closeModal = () => { modalOverlay.style.display = 'none'; };
+
+    if (openModalBtn) openModalBtn.addEventListener('click', openModal);
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+    window.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
+
+    // ----- PDF GENERATION (uses same updated resume content) -----
+    function downloadResumeAsPDF() {
+        if (modalOverlay && modalOverlay.style.display === 'flex') {
+            closeModal();
+        }
+        const printContainer = document.createElement('div');
+        printContainer.className = 'print-resume-only';
+        printContainer.style.position = 'absolute';
+        printContainer.style.top = '0';
+        printContainer.style.left = '0';
+        printContainer.style.width = '100%';
+        printContainer.style.background = 'white';
+        printContainer.style.padding = '2rem';
+        printContainer.style.zIndex = '10000';
+        printContainer.style.fontFamily = "'Inter', 'Segoe UI', sans-serif";
+        printContainer.innerHTML = `
+            <div style="max-width: 800px; margin: 0 auto; background: white;">
+                <div style="text-align: center; margin-bottom: 1.2rem;">
+                    <h1 style="color: #0F2B45; font-size: 2.3rem; margin-bottom: 0.2rem;">Yashaswini P R</h1>
+                    <p style="color: #C59B4A; font-weight: 600; font-size: 1rem;">Puravara (V)&(P), Madhugiri (TQ), Tumkur (Dist), Karnataka - 572175</p>
+                    <p style="color: #2C4C6C;">📞 +91 93533 09738 | ✉️ pryashu04@gmail.com</p>
+                    <hr style="margin: 1rem 0; border-color: #C59B4A;">
+                </div>
+                ${structuredResumeHTML}
+                <p style="margin-top: 1.5rem; font-size: 0.7rem; text-align: center; color: #5A6E7F;">Yashaswini P R — Official Resume • April 2026</p>
+            </div>
+        `;
+        document.body.appendChild(printContainer);
+        window.print();
+        setTimeout(() => {
+            if (printContainer.parentNode) document.body.removeChild(printContainer);
+        }, 1000);
+    }
+
+    if (downloadModalBtn) downloadModalBtn.addEventListener('click', downloadResumeAsPDF);
+
+    // ----- SPA Navigation (Active links & Hash) -----
+    const allNavLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('.page-section');
+
+    function activateSection(sectionId) {
+        sections.forEach(sec => sec.classList.remove('active'));
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) targetSection.classList.add('active');
+        
+        allNavLinks.forEach(link => {
+            const target = link.getAttribute('data-target');
+            if (target === sectionId) link.classList.add('active-link');
+            else link.classList.remove('active-link');
+        });
+    }
+
+    allNavLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('data-target');
+            if (targetId) {
+                activateSection(targetId);
+                history.pushState(null, null, `#${targetId}`);
+            }
+        });
+    });
+
+    function handleHashChange() {
+        let hash = window.location.hash.substring(1);
+        if (hash && document.getElementById(hash)) {
+            activateSection(hash);
+        } else {
+            activateSection('home');
+        }
+    }
+    window.addEventListener('popstate', handleHashChange);
+    handleHashChange();
+
+    const heroSub = document.querySelector('.hero-subtitle');
+    if (heroSub && heroSub.innerText !== 'Project Intern @ AIkshetra | BCA Candidate') {
+        heroSub.innerText = 'Project Intern @ AIkshetra | BCA Candidate';
+    }
+</script>
+</body>
+</html>
