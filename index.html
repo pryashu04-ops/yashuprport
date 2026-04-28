@@ -416,7 +416,17 @@
     <section id="home" class="page-section active">
         <div class="hero-content">
             <div class="profile-image-container">
-                <img class="profile-img" src="C:\Users\Dell\OneDrive\Documents\yashuprport\Yashaswini P R.jpeg"
+                <!-- 
+                    ✅ HOW TO ADD YOUR OWN PROFILE PHOTO:
+                    1. Place your image file inside a folder named "images" (or same folder as this HTML)
+                    2. Replace the src below with the correct relative path.
+                       Examples:
+                       - If image is "images/myphoto.jpg" → src="images/myphoto.jpg"
+                       - If image is in same folder → src="yashaswini.jpg"
+                    3. Avoid spaces in filenames; use underscore or dash.
+                    Current placeholder shows your initials "YP".
+                -->
+                <img class="profile-img" src="Yashaswini P R.jpeg"
                      alt="Yashaswini P R profile avatar">
             </div>
             <h1>Yashaswini P R</h1>
@@ -504,7 +514,7 @@
             <h2>Featured Projects</h2>
             <div class="card">
                 <h4>🍽️ Restaurant App System</h4>
-                <p>Full-stack web application enabling online food ordering, table reservations, and real-time order tracking for restaurants. Includes admin panel for menu and order management.</p>
+                <p>web based application enabling online food ordering, table reservations, and real-time order tracking for restaurants. Includes admin panel for menu and order management.</p>
             </div>
             <div class="card">
                 <h4>🏦 Banking System</h4>
@@ -563,7 +573,7 @@
 </footer>
 
 <script>
-    // ========== RESUME CONTENT EXACTLY MATCHING THE PROVIDED PDF ==========
+    // ========== RESUME CONTENT - ACCURATELY MATCHING YOUR PDF ==========
     const structuredResumeHTML = `
         <div class="resume-block">
             <h4>Contact & Address</h4>
@@ -632,7 +642,7 @@
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
     window.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
 
-    // ----- PDF GENERATION (uses same updated resume content) -----
+    // ----- PDF GENERATION (uses same corrected resume content) -----
     function downloadResumeAsPDF() {
         if (modalOverlay && modalOverlay.style.display === 'flex') {
             closeModal();
